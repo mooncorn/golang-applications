@@ -4,13 +4,14 @@ import (
 	"context"
 	"crypto/rand"
 	"crypto/sha256"
+	"github.com/ipfs/go-cid"
+	"github.com/libp2p/go-libp2p"
+	"github.com/libp2p/go-tcp-transport"
+	"github.com/multiformats/go-multiaddr"
+	"github.com/multiformats/go-multihash"
 	"sync"
 	"time"
 
-	"github.com/libp2p/go-libp2p/p2p/transport/tcp"
-
-	"github.com/ipfs/go-cid"
-	"github.com/libp2p/go-libp2p"
 	connmgr "github.com/libp2p/go-libp2p-connmgr"
 	"github.com/libp2p/go-libp2p-core/crypto"
 	"github.com/libp2p/go-libp2p-core/peer"
@@ -22,12 +23,10 @@ import (
 	tls "github.com/libp2p/go-libp2p-tls"
 	yamux "github.com/libp2p/go-libp2p-yamux"
 	"github.com/mr-tron/base58/base58"
-	"github.com/multiformats/go-multiaddr"
-	"github.com/multiformats/go-multihash"
 	"github.com/sirupsen/logrus"
 )
 
-const service = "david/chat"
+const service = "LaSalle_ChatApplication/Thursday"
 
 // A structure that represents a P2P Host
 type P2P struct {
